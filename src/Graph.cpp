@@ -1,3 +1,5 @@
+#include <utility>
+
 #include "../include/Graph.h"
 
 Graph::Graph()
@@ -16,13 +18,13 @@ Graph::Graph(std::vector<std::string> sommets, std::vector<Link> Links):
 
 
 Graph::Graph(int nbSommet, std::vector<std::string> sommets, std::vector<Link> Links):
-    m_nbSommet(nbSommet), m_sommets(sommets), m_links(Links), m_nbLink(Links.size())
+    m_nbSommet(nbSommet), m_sommets(std::move(sommets)), m_links(Links), m_nbLink(Links.size())
     {
 
     }
 
 Graph::Graph(int nbSommet, std::vector<std::string> sommets, int nbLinks, std::vector<Link> Links):
-        m_nbSommet(nbSommet), m_sommets(sommets), m_links(Links), m_nbLink(nbLinks)
+        m_nbSommet(nbSommet), m_sommets(std::move(sommets)), m_links(std::move(Links)), m_nbLink(nbLinks)
 {
 
 }
@@ -47,7 +49,3 @@ void Graph::addSommet(std::string sommet) {
     m_nbSommet++;
 }
 
-Graph::~Graph()
-{
-    //dtor
-}

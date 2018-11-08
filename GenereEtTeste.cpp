@@ -14,8 +14,6 @@ int main( int argc, char** argv ){
     Graph G;
 
     graphReader::readGraph(G, input);
-
-
     for(int i = 0; i< G.getNb(); i++){
         cout << G.getSommets().at(i) << " ";
     }
@@ -23,5 +21,7 @@ int main( int argc, char** argv ){
     for (int i =0; i< G.getNbLink(); i++){
         cout << G.getLinks().at(i).getS1() << "," << G.getLinks().at(i).getS2() << endl;
     }
+
+
     return 0;
 }

@@ -13,7 +13,7 @@ class Graph
         Graph(std::vector<std::string> sommets, std::vector<Link> links);
         Graph(int nbSommets, std::vector<std::string> sommets, std::vector<Link> links);
         Graph(int nbSommets, std::vector<std::string> sommets, int nbLinks, std::vector<Link> links);
-        virtual ~Graph();
+        virtual ~Graph() = default;
 
         int getNb()const {return m_nbSommet;}
         int getNbLink()const {return m_nbLink;}
