@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-#include <link.h>
+#include "Link.h"
 
 class Graph
 {
@@ -11,12 +11,18 @@ class Graph
         Graph();
         Graph(int nbSommets);
         Graph(int nbSommets, std::vector<std::string> sommets, std::vector<Link> links);
+        Graph(int nbSommets, std::vector<std::string> sommets, int nbLinks, std::vector<Link> links);
         virtual ~Graph();
 
         int getNb()const {return m_nbSommet;}
         int getNbLink()const {return m_nbLink;}
+
         std::vector<std::string> getSommets() const {return m_sommets;}
         std::vector<Link> getLinks() const {return m_links;}
+
+        int findSommet(const std::string &sommet) const;
+
+        std::vector<Link> findLinks(const std::string &sommet);
 
     private:
         int m_nbSommet;

@@ -3,4 +3,4 @@ project(CHNO)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(CHNO main.cpp src/verifierCertificat.cpp src/Parcours.h src/Parcours.cpp src/Graph.h src/Graph.cpp src/Link.h src/Link.cpp)
+add_executable(CHNO main.cpp include/verifierCertificat.h include/Parcours.h src/Parcours.cpp include/Graph.h src/Graph.cpp include/Link.h src/Link.cpp)

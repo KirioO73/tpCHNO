@@ -1,4 +1,4 @@
-#include "link.h"
+#include "../include/Link.h"
 
 Link::Link()
 {
