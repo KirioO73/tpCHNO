@@ -10,6 +10,7 @@ class Graph
     public:
         Graph();
         Graph(int nbSommets);
+        Graph(std::vector<std::string> sommets, std::vector<Link> links);
         Graph(int nbSommets, std::vector<std::string> sommets, std::vector<Link> links);
         Graph(int nbSommets, std::vector<std::string> sommets, int nbLinks, std::vector<Link> links);
         virtual ~Graph();
@@ -23,6 +24,8 @@ class Graph
         int findSommet(const std::string &sommet) const;
 
         std::vector<Link> findLinks(const std::string &sommet);
+
+        void addSommet(std::string sommet);
 
     private:
         int m_nbSommet;
