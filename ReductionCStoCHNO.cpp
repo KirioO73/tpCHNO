@@ -23,12 +23,11 @@ int main( int argc, char** argv ){
     }
 
     Graph Gres;
-    for(int i=1; i <= k; ++i){
-        Gres.addSommet("s"+ to_string(i));
-    }
     for(auto &itLinks : Glecture.getLinks()){
        Widget W = Widget(itLinks);
        Gres.addGraph(W.getDataWidget());
     }
+
+
 
 }
