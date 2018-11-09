@@ -49,3 +49,10 @@ void Graph::addSommet(std::string sommet) {
     m_nbSommet++;
 }
 
+void Graph::addGraph(Graph otherG) {
+    m_sommets.insert(m_sommets.end(), otherG.getSommets().begin(), otherG.getSommets().end());
+    m_links.insert(m_links.end(), otherG.getLinks().begin(), otherG.getLinks().end());
+    m_nbSommet = m_sommets.size();
+    m_nbLink = m_links.size();
+}
+

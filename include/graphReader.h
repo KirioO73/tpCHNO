@@ -6,32 +6,37 @@
 #include <sstream>
 #include "Graph.h"
 
+using namespace std;
 class graphReader{
 public:
-    static bool readGraph(Graph & G,std::istream & input){
-        std::string str;
-        std::vector<std::string> Sommets;
-        std::vector<Link> Links;
+    ///
+    /// \param G: Graph ref where store readed data
+    /// \param input: stream to read
+    /// \return bool, true if worked
+    static bool readGraphCHNO(Graph &G, istream &input){
+        string str;
+        vector<string> Sommets;
+        vector<Link> Links;
 
         if ( !input.good() ) {
-            std::cerr << "Probleme !";
+            cerr << "Probleme !";
             return false;
         }
 
-        std::getline(input, str);   //Graph{
-        std::getline(input, str);   //Line pour sommets
-        std::string s;
-        std::istringstream istr(str);
+        getline(input, str);   //Graph{
+        getline(input, str);   //Line pour sommets
+        string s;
+        istringstream istr(str);
         while(istr >> s){
             Sommets.push_back(s);
         }
         istr.clear();
 
-        std::getline(input, str);
+        getline(input, str);
         while(str != "}"){
-            std::vector<std::string> vLin{explode(str, '-')};
+            vector<string> vLin{explode(str, '-')};
             Links.emplace_back(vLin[0], vLin[1].erase(vLin[1].size() - 1 ));
-            std::getline(input, str);
+            getline(input, str);
         }
 
         G = Graph(Sommets, Links);
@@ -39,11 +44,53 @@ public:
         return true;
     }
 
+    ///
+    /// \param G: Graph ref where store readed data
+    /// \param input: stream to read
+    /// \return int, valeur k
+    static int readGraphCS(Graph &G, istream &input){
+        string str;
+        vector<string> Sommets;
+        vector<Link> Links;
+
+        if ( !input.good() ) {
+            cerr << "Probleme !";
+            return -1;
+        }
+
+        getline(input, str);   //Graph{
+        getline(input, str);   //Line pour sommets
+        string s;
+        istringstream istr(str);
+        while(istr >> s){
+            Sommets.push_back(s);
+        }
+        istr.clear();
+
+        getline(input, str);
+        while(str != "}"){
+            vector<string> vLin{explode(str, '-')};
+            Links.emplace_back(vLin[0], vLin[1].erase(vLin[1].size() - 1 ));
+            getline(input, str);
+        }
+        G = Graph(Sommets, Links);
+
+        getline(input, str);
+        if(str == "Entier{"){
+            getline(input, str);
+            return stoi(str);
+        }
+        else{
+            return -1;
+        }
+    }
+
+
 private:
-    static const std::vector<std::string> explode(const std::string& s, const char& c)
+    static const vector<string> explode(const string& s, const char& c)
     {
-        std::string buff;
-        std::vector<std::string> v;
+        string buff;
+        vector<string> v;
 
         for(auto n:s)
         {

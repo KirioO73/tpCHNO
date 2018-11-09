@@ -25,6 +25,7 @@ class Graph
         std::vector<Link> findLinks(const std::string &sommet) const;
 
         void addSommet(std::string sommet);
+        void addGraph(Graph otherG);
 
     private:
         int m_nbSommet;

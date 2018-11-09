@@ -9,12 +9,12 @@
 using namespace std;
 int main( int argc, char** argv ){
     if(argc < 2){
-        cout << "Usage: genereEtTest <inputGraph.txt>" << endl;
+        cout << "Usage: genereEtTest <inputGraph>" << endl;
     }
 
     ifstream input(argv[1]);
     Graph G;
-    graphReader::readGraph(G, input);
+    graphReader::readGraphCHNO(G, input);
 
     for(int i = 0; i< G.getNb(); i++){
         cout << G.getSommets().at(i) << " ";
@@ -41,7 +41,7 @@ int main( int argc, char** argv ){
         /*for(auto &t : P.getChemin()) cout << t << " ";
         cout <<  "len " << P.getLen() <<endl;*/
         if (Verifier::verifierCertificat(G, P)){
-            cout << "Est un CHNO" << endl;
+            cout << "true" << endl;
             return 0;
         }
     }
