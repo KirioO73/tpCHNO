@@ -29,11 +29,8 @@ public:
 
         std::getline(input, str);
         while(str != "}"){
-            Link L;
             std::vector<std::string> vLin{explode(str, '-')};
-            L.setS1(vLin[0]);
-            L.setS2(vLin[1]);
-            Links.push_back(L);
+            Links.emplace_back(vLin[0], vLin[1].erase(vLin[1].size() - 1 ));
             std::getline(input, str);
         }
 

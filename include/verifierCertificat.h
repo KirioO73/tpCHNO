@@ -7,19 +7,20 @@
 
 class Verifier{
 public:
-    static bool verifierCertificat(Graph G, Parcours P)
+    static bool verifierCertificat(const Graph &G, Parcours P)
     {
         //test taille : le parcours doit prendre tous les Sommet en compte, il doit donc avoir le même nombre d'élem que le graph
         if (P.getLen() != G.getNb()) return false;
         else
         {
+            //std::cout << "taille ok" << std::endl;
             //test doublons : le Parcours ne doit passer qu'une seule fois par chaque sommet
             for (int i = 0; i < P.getLen() - 1; i++){
                 for(int y = i+1; y < P.getLen(); y++){
                     if (P.getChemin().at(i) == P.getChemin().at(y)) return false;
                 }
             }
-
+            //std::cout << "doublon ok" << std::endl;
             //test parcours valide
             //Commence au première elem du parcour
             std::string first = P.getChemin().at(0);

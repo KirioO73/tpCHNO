@@ -9,7 +9,6 @@ class Graph
 {
     public:
         Graph();
-        Graph(int nbSommets);
         Graph(std::vector<std::string> sommets, std::vector<Link> links);
         Graph(int nbSommets, std::vector<std::string> sommets, std::vector<Link> links);
         Graph(int nbSommets, std::vector<std::string> sommets, int nbLinks, std::vector<Link> links);
@@ -23,7 +22,7 @@ class Graph
 
         int findSommet(const std::string &sommet) const;
 
-        std::vector<Link> findLinks(const std::string &sommet);
+        std::vector<Link> findLinks(const std::string &sommet) const;
 
         void addSommet(std::string sommet);
 

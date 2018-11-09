@@ -36,7 +36,7 @@ int Graph::findSommet(const std::string &sommet) const {
     return -1;
 }
 
-std::vector<Link> Graph::findLinks(const std::string &sommet) {
+std::vector<Link> Graph::findLinks(const std::string &sommet) const{
     std::vector<Link> res;
     for (int i = 0; i < getNbLink(); i++){
         if (m_links.at(i).getS1() == sommet || m_links.at(i).getS2() == sommet) res.push_back(m_links.at(i));
