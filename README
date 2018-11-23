@@ -4,7 +4,7 @@ Le tp a été réalisé sous windows, avec l'ide CLion fourni par JetBrains.
 Le projet utilise donc Cmake.
 
 Afin de compiler : 
-    - utiliser la commande "cmake" pour générer le makeFile
+    - utiliser la commande "cmake" pour générer le makeFile  /!\ Attention cmake 3.10 requis /!\
     - uriliser la commande "make" pour compiler les sources grâce makefile générer
 
 Afin de lancer :
