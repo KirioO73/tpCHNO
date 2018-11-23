@@ -1,0 +1,10 @@
+Graph{
+w x y z
+w-x
+w-y
+x-y
+w-z
+}
+Entier{
+2
+}
