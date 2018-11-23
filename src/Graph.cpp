@@ -1,4 +1,5 @@
 #include <utility>
+#include <iostream>
 
 #include "../include/Graph.h"
 
@@ -45,14 +46,26 @@ std::vector<Link> Graph::findLinks(const std::string &sommet) const{
 }
 
 void Graph::addSommet(std::string sommet) {
-    getSommets().push_back(sommet);
+    m_sommets.push_back(sommet);
     m_nbSommet++;
 }
 
+void Graph::addLink(Link L) {
+    m_links.push_back(L);
+    m_nbLink++;
+}
+
 void Graph::addGraph(Graph otherG) {
-    m_sommets.insert(m_sommets.end(), otherG.getSommets().begin(), otherG.getSommets().end());
-    m_links.insert(m_links.end(), otherG.getLinks().begin(), otherG.getLinks().end());
+    for (const auto &S : otherG.getSommets()) addSommet(S);
+    for (const auto &L : otherG.getLinks()) addLink(L);
+}
+
+/*void Graph::addGraphWidget(Widget W) {
+    getSommets().insert(m_sommets.end(), W.getDataWidget().getSommets().begin(), W.getDataWidget().getSommets().end());
+    getLinks().insert(m_links.end(), W.getDataWidget().getLinks().begin(), W.getDataWidget().getLinks().end());
     m_nbSommet = m_sommets.size();
     m_nbLink = m_links.size();
-}
+}*/
+
+
 

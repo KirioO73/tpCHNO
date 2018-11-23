@@ -11,19 +11,14 @@ int main( int argc, char** argv ){
     if(argc < 2){
         cout << "Usage: genereEtTest <inputGraph>" << endl;
     }
+    cerr << "Init OK" << endl;
 
     ifstream input(argv[1]);
     Graph G;
     graphReader::readGraphCHNO(G, input);
 
-    for(int i = 0; i< G.getNb(); i++){
-        cout << G.getSommets().at(i) << " ";
-    }
-    cout << endl;
-    for (int i =0; i< G.getNbLink(); i++){
-        cout << G.getLinks().at(i).getS1() << "," << G.getLinks().at(i).getS2() << endl;
-    }
-    cout << endl;
+    cerr << "lecture OK" << endl;
+
     Parcours Parc;
     vector<Parcours> ParcoursGenerer;
     vector<string> Sommets;

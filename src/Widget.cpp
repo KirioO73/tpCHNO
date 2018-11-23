@@ -21,5 +21,6 @@ Widget::Widget(Link L) {
     Links.emplace_back(Link(L.getS1() + L.getS2() + "4",L.getS2() + L.getS1() + "6"));
     Links.emplace_back(Link(L.getS1() + L.getS2() + "6",L.getS2() + L.getS1() + "4"));
 
+
     m_dataWidget = Graph(Sommets, Links);
 }

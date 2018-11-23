@@ -57,7 +57,7 @@ public:
             cerr << "Probleme !";
             return -1;
         }
-
+        //cerr << "lecture start OK" << endl;
         getline(input, str);   //Graph{
         getline(input, str);   //Line pour sommets
         string s;
@@ -67,16 +67,21 @@ public:
         }
         istr.clear();
 
+        //cerr << "lecture Sommet OK" << endl;
+
         getline(input, str);
-        while(str != "}"){
+        while(str.substr(0, str.size()-1) != "}"){
+            //cerr << "lecture links " << str.substr(0, str.size()-1)  << endl;
             vector<string> vLin{explode(str, '-')};
             Links.emplace_back(vLin[0], vLin[1].erase(vLin[1].size() - 1 ));
             getline(input, str);
         }
+        //cerr << "lecture Links OK" << endl;
+
         G = Graph(Sommets, Links);
 
         getline(input, str);
-        if(str == "Entier{"){
+        if(str.substr(0, str.size()-1) == "Entier{"){
             getline(input, str);
             return stoi(str);
         }

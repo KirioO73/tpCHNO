@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "Link.h"
+//#include "Widget.h"
 
 class Graph
 {
@@ -25,9 +26,12 @@ class Graph
         std::vector<Link> findLinks(const std::string &sommet) const;
 
         void addSommet(std::string sommet);
+        void addLink(Link L);
         void addGraph(Graph otherG);
+        //void addGraphWidget(Widget W);
 
-    private:
+
+private:
         int m_nbSommet;
         int m_nbLink;
         std::vector<std::string> m_sommets;
