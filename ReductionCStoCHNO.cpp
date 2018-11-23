@@ -45,7 +45,23 @@ int main( int argc, char** argv ){
     for(auto &itLinks : Glecture.getLinks()){
        Widget W = Widget(itLinks);
        Gres.addGraph(W.getDataWidget());
-       // TODO : Add links Widget / graph (= E/S) (cf course given by teacher)
+    }
+    // TODO : Add links Widget / graph (= E/S) (cf course given by teacher)
+    //pour chaques sommets
+    for(auto S: Glecture.getSommets()){
+        //On regarde ses liens
+        vector<Link> vL = Glecture.findLinks(S);
+        // Pour chaque liens, on relie le widget précédement créer au suivant
+        int i = 0;
+        if( !vL.empty()){
+            for(int j = 1; j<=k; j++ ) Gres.addLink(Link( vL.at(0).getS1() + vL.at(0).getS2() + to_string(6),"k"+ to_string(j)));
+            for(; i < vL.size()-1; i ++){
+                Gres.addLink(Link(vL.at(i).getS1() + vL.at(i).getS2() + to_string(6), vL.at(i+1).getS1() + vL.at(i+1).getS2() + to_string(1)));
+            }
+            //Pour le dernier lien, on le relie aux K Sommets
+            for(int j = 1; j<=k; j++ ) Gres.addLink(Link( vL.at(i).getS1() + vL.at(i).getS2() + to_string(6),"k"+ to_string(j)));
+        }
+
     }
     cerr << "crea OK" << endl;
 

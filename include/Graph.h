@@ -31,6 +31,8 @@ class Graph
         //void addGraphWidget(Widget W);
 
 
+    std::vector <Link> findLinksFirst(std::string basic_string);
+
 private:
         int m_nbSommet;
         int m_nbLink;

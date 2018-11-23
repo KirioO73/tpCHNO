@@ -45,6 +45,14 @@ std::vector<Link> Graph::findLinks(const std::string &sommet) const{
     return res;
 }
 
+std::vector <Link> Graph::findLinksFirst(const std::string sommet) {
+    std::vector<Link> res;
+    for (int i = 0; i < getNbLink(); i++){
+        if (m_links.at(i).getS1() == sommet) res.push_back(m_links.at(i));
+    }
+    return res;
+}
+
 void Graph::addSommet(std::string sommet) {
     m_sommets.push_back(sommet);
     m_nbSommet++;
@@ -59,6 +67,7 @@ void Graph::addGraph(Graph otherG) {
     for (const auto &S : otherG.getSommets()) addSommet(S);
     for (const auto &L : otherG.getLinks()) addLink(L);
 }
+
 
 /*void Graph::addGraphWidget(Widget W) {
     getSommets().insert(m_sommets.end(), W.getDataWidget().getSommets().begin(), W.getDataWidget().getSommets().end());

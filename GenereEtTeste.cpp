@@ -31,10 +31,9 @@ int main( int argc, char** argv ){
         ParcoursGenerer.emplace_back(Parc);
     }while(next_permutation(Sommets.begin(), Sommets.end()));
 
+    cerr << "genere Ok" << endl;
 
     for (auto &P : ParcoursGenerer) {
-        /*for(auto &t : P.getChemin()) cout << t << " ";
-        cout <<  "len " << P.getLen() <<endl;*/
         if (Verifier::verifierCertificat(G, P)){
             cout << "true" << endl;
             return 0;
